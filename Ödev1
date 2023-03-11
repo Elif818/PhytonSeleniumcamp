@@ -1,1 +1,28 @@
-x
+# 1- Python Veri Tipleri
+int = Tam sayıları ifade eder.
+float = Ondalıklı bir gerçek sayıyı ifade eder.
+str = Metinsel veya karakter ifadelerin içersinde tutulduğu bir veri tipidir.
+bool = Mantıksal bir veri tipidir.(True ve False değerlerini taşır.)
+list = Bileşik veri tipidir. [] ile gösterilir.Birden fazla aynı ya da farklı türden verileri barındırabilir. Liste içerisinde veri ekleme, çıkarma işlemleri yapılabilir.
+Tuple = list ile arasındaki fark: tuple içerisindeki veriler değiştirilemez.
+dict (sözlük) = Süslü parantez içerisindde yazılarak tanımlanır. key value yapısı ile verileri depolar.
+
+#2- kadloma.io sitesinde değişken olarak kullanıldığını düşündüğünüz verileri veri tipleriyle örneklendirin
+str: Ders programı,amaç, ödev tanımı, Eğitmen adı ve bilgileri, öğrenci yorumları
+int: Öğrenci yorum sayısını gösteren tam sayı değeri,Dersin tamamlanma yüzdesini gösteren tam sayı değeri
+list= Ana sayfada yer alan kurslar ve seçebileceğimiz eğitmenler 
+bool = Bitir ve devam et butonu ile ödevlerin tamamlanaması ve bu doğru olduğunda kursun tamamlanma oranına yansıması
+
+#3 Kodlama.io sitesinde şart blokları kullanıldığını düşündüğünüz kısımları örneklendirin
+#ögrencimail ="elifdemirci0864@gmail.com"
+#sifre= "123456"
+
+ögrencimail = input("Mail adresinizi yazın:  ")
+sifre = input("sifrenizi girin:  ")
+if(ögrencimail=="elifdemirci0864@gmail.com"  and sifre == "123456" ):
+    print("giriş başarılı")
+else:
+    print("mail adresinizi veya şifrenizi kontrol edin.")
+
+   
+
