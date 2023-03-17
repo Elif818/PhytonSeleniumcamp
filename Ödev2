@@ -1,0 +1,62 @@
+# Bir öğrenci kayıt sistemi yazdığımızı düşünelim. Sistemimizdeki öğrencileri bir listede sadece ad soyad olacak şekilde tutalım.
+# Bu öğrenci kayıt sistemine;
+# Aldığı isim soy isim ile listeye öğrenci ekleyen   
+# Aldığı isim soy isim ile eşleşen değeri listeden kaldıran 
+# Listeye birden fazla öğrenci eklemeyi mümkün kılan 
+# Listedeki tüm öğrencileri tek tek ekrana yazdıran 
+# Öğrencinin listedeki index numarası öğrenci numarası olarak kabul edildiğini düşünerek öğrencinin numarasını öğrenmeyi mümkün kılan 
+# Listeden birden fazla öğrenci silmeyi mümkün kılan (döngü kullanınız) 
+# fonksiyonları geliştiriniz ve her bir fonksiyonu en az bir kere çağırarak konsolda test ediniz.
+
+ögrenciListesi = [ "Elif Demirci","Merve Akçay" ,"Ahmet Deniz"]
+
+ # Listedeki tüm öğrencileri tek tek ekrana yazdıran
+def öğrenciListele():
+    ögrenci=0
+    for öğrenci in ögrenciListesi:
+        print(ögrenciListesi[ögrenci])
+        ögrenci += 1
+
+öğrenciListele()
+
+
+# Aldığı isim soy isim ile listeye öğrenci ekleyen
+def ögrenciEkle():
+    ögrenciadsoyad= input("Eklenecek olan öğrencinin adı soyadı: ")
+    ögrenciListesi.append(ögrenciadsoyad)
+    print(f"{ögrenciadsoyad} listeye eklenmiştir.")
+    
+ögrenciEkle()
+öğrenciListele()    
+
+# Listeye birden fazla öğrenci eklemeyi mümkün kılan
+def ögrencilerEkle():
+    ekleneceksayi = int (input("Kaç tane öğrencinin kaydı eklenecek: "))
+    for i in range(ekleneceksayi):
+        ekleneceköğrenci = input("eklenecek öğrencinin adı soyadı: ")
+        ögrenciListesi.append(ekleneceköğrenci)
+        i +=1
+ 
+ögrencilerEkle()
+öğrenciListele()     
+
+# Listeden birden fazla öğrenci silmeyi mümkün kılan (döngü kullanınız)
+def ögrencilerSil():
+    silineceksayi= int(input("Kaç tane öğrencinin kaydı silinecek: "))
+    for i in range(silineceksayi):
+        silinecekögrenci= input("silinecek öğrencinin adı soyadı: ")
+        ögrenciListesi.remove(silinecekögrenci)
+        i += 1
+
+ögrencilerSil()
+öğrenciListele()  
+
+# Öğrencinin listedeki index numarası öğrenci numarası olarak kabul edildiğini düşünerek öğrencinin numarasını öğrenmeyi mümkün kılan
+def ögrenciNumaraBul():
+    ögrenciadsoyad = input("Numarasını öğrenmek istediğiniz öğrencinin adı soyadı: ")
+    ögrenciNo = ögrenciListesi.index(ögrenciadsoyad)
+    print(f"{ögrenciadsoyad} adlı öğrencinin numarası {ögrenciNo}")
+
+ögrenciNumaraBul()
+öğrenciListele()
+
