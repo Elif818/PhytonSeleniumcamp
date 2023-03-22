@@ -1,0 +1,109 @@
+# Aşağıda verilen test caselerin hepsini "https://www.saucedemo.com/" sitesinde gerçekleştirmeniz istenmektedir.
+
+# Yazacağınız tüm kodları oluşturduğunuz bir classda fonksiyonlar oluşturarak gerçekleştiriniz. Bu classın fonksiyonlarını çağırarak test ediniz.
+
+# Test Caseler;
+
+# Kullanıcı adı ve şifre alanları boş geçildiğinde uyarı mesajı olarak "Epic sadface: Username is required" gösterilmelidir.
+# Sadece şifre alanı boş geçildiğinde uyarı mesajı olarak "Epic sadface: Password is required" gösterilmelidir.
+# Kullanıcı adı "locked_out_user" şifre alanı "secret_sauce" gönderildiğinde "Epic sadface: Sorry, this user has been locked out." mesajı gösterilmelidir.
+# Kullanıcı adı ve şifre alanları boş geçildiğinde bu iki inputun yanında da kırmızı "X" ikonu çıkmalıdır. Daha sonra aşağıda çıkan uyarı mesajının kapatma butonuna tıklandığında bu "X" ikonları kaybolmalıdır. (Tek test casede işleyiniz)
+# Kullanıcı adı "standard_user" şifre "secret_sauce" gönderildiğinde kullanıcı "/inventory.html" sayfasına gönderilmelidir.
+# Giriş yapıldıktan sonra kullanıcıya gösterilen ürün sayısı "6" adet olmalıdır.
+
+
+
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+from time import sleep
+from selenium.webdriver.common.by import By
+
+class Test_Sauce:
+
+    driver= webdriver.Chrome(ChromeDriverManager().install())
+    driver.get("https://www.saucedemo.com/")
+    sleep(5)
+
+    def test_emptypassword_emptyusername(self):
+        loginBtn = self.driver.find_element(By.ID,"login-button")
+        sleep(2)
+        loginBtn.click()
+        errorMessage = self.driver.find_element(By.XPATH,"/html/body/div/div/div[2]/div[1]/div/div/form/div[3]/h3")
+
+        # Kullanıcı adı ve şifre alanları boş geçildiğinde uyarı mesajı olarak "Epic sadface: Username is required" gösterilmelidir.
+        errorMessage.text == "Epic sadface: Username is required"
+        sleep(5)
+        print(f"test sonucu :  {errorMessage.text}")
+        sleep(2)
+
+
+    def test_empty_password(self):
+        usernameInput = self.driver.find_element(By.ID,"user-name")
+        usernameInput.send_keys("Elif")
+        sleep(2)
+        loginBtn = self.driver.find_element(By.ID,"login-button")
+        loginBtn.click()
+        sleep(2)
+        errorMessage = self.driver.find_element(By.XPATH,"/html/body/div/div/div[2]/div[1]/div/div/form/div[3]/h3")
+
+        # Sadece şifre alanı boş gelildiğinde uyarı mesajı olarak "Epic sadface: Password is required" gösterilmelidir.
+        errorMessage.text == " Epic sadface : Password is required"
+        sleep(2)
+        print(f"test sonucu: {errorMessage.text}")
+    
+    def test_locked_out (self):
+        usernameInput = self.driver.find_element(By.ID,"user-name")
+        password= self.driver.find_element(By.ID,"password")
+        sleep(2)
+        usernameInput.send_keys("locked_out_user")
+        password.send_keys("secret_sauce")
+        sleep(2)
+        loginBtn = self.driver.find_element(By.ID,"login-button")
+        loginBtn.click()
+        sleep(2)
+        errorMessage = self.driver.find_element(By.XPATH,"/html/body/div/div/div[2]/div[1]/div/div/form/div[3]/h3")
+
+        # Kullanıcı adı "locked_out_user" şifre alanı "secret_sauce" gönderildiğinde "Epic sadface: Sorry, this user has been locked out." mesajı gösterilmelidir.
+        errorMessage.text == " Epic sadface : Sorry, this uxer has beeen locked out "
+        sleep(2)
+        print(f"test sonucu: {errorMessage.text}")
+
+
+        
+    def test_true (self):
+        usernameInput = self.driver.find_element(By.ID,"user-name")
+        password= self.driver.find_element(By.ID,"password")
+        sleep(2)
+        usernameInput.send_keys("standard_user")
+        password.send_keys("secret_sauce")
+        sleep(2)
+        loginBtn = self.driver.find_element(By.ID,"login-button")
+        sleep(2)
+        loginBtn.click()
+        sleep(5)
+        
+    def product (self):
+        usernameInput = self.driver.find_element(By.ID,"user-name")
+        password= self.driver.find_element(By.ID,"password")
+        sleep(2)
+        usernameInput.send_keys("standard_user")
+        password.send_keys("secret_sauce")
+        sleep(2)
+        loginBtn = self.driver.find_element(By.ID,"login-button")
+        sleep(2)
+        loginBtn.click()
+        sleep(5)
+        product= self.driver.find_elements(By.CLASS_NAME,"inventory_item")
+        sleep(5)
+        print(f"{len(product)} adet ürün var")
+     
+            
+
+testClass = Test_Sauce()
+testClass.test_emptypassword_emptyusername()
+testClass.test_empty_password()
+testClass.test_locked_out()
+testClass.test_true()
+testClass.product()
+
+sleep(100)
