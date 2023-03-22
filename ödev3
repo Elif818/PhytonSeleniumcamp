@@ -1,0 +1,41 @@
+Aşağıdaki konuları araştırıp not alarak notlarınızı arkadaşlarınızla bu ödevin yorum kısmında paylaşınız;
+-------------------------------------------------------------
+HTML 
+Hyper Text Markup Language - web sayfalarını oluşturmak için kullanılan standart metin işareteleme dilidir. 
+Dilin son sürümü HTML5'tir.
+İşaretleme dili olarak web sayfalarında kullanılır
+HTML için programlama dili denilemez.
+----------------------------------------------------------
+Locators
+Konumlandırıcılar, bir web sayfasındaki bir HTML ögesini tanımlamanın yoludur.
+Selenium'da yer alan 8 locators:
+Identifier
+Id
+Name
+Link
+DOM
+XPath
+CSS
+UI-element
+
+By CSS ID: find_element_by_id
+By CSS class name: find_element_by_class_name
+By name attribute: find_element_by_name
+By DOM structure or Xpath: find_element_by_xpath
+by tagName: find_element_by_tag_name()
+By link text: find_element_by_link_text
+By partial link text: find_element_by_partial_link_text
+By HTML tag name: find_element_by_tag_name
+-----------------------------------------------------------------
+Selenium'da aksiyonlar (send_keys, click vb..)
+
+back: Önceki sayfaya geri dönmek için kullanılır.
+forward: Sonraki sayfaya gitmek için kullanılır.
+refresh: Açılan sayfayı yenilemek için kullanılır.
+close: Sadece sekmeyi kapatır.
+quit: Tüm tarayıcıyı kapatır.
+maximize_window: Açılan sayfayı tam ekran yapmak için kullanılır.
+set_window_size: Açılan sayfanın boyutlarını belirlerken kullanılır.
+click: Seçilen ögeye tıklamak için kullanılır.
+get: web sitesini açmak için kullanılır.
+page_source: Sayfanın kaynak koduna ulaşmak için kullanılır.
